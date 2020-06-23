@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+		<script>
+		var today = new Date();
+		window.onload = function() {
+			cDate.innerHTML = today.getFullYear() + "년" + (today.getMonth()+1) + "월" + today.getDay() + "일";
+		}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>클라이언트 날짜: <span id="cDate"></span></li>
+			<li>서버 날짜: <span>{{today}}</span> </li>
+			<li><a href="/weather?x=74&y=121">Munmak weather</a></li>
+			<li><a href="/shortweather?x=74&y=121">Munmak shortweather</a></li>
+		</ul>
+	</body>
+</html>

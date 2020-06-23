@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>문막 초단기날씨</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+	</head>
+	<body>
+		<h1>문막 초단기날씨</h1>
+		<ul>
+			
+			<li> 기온: <span>{{ t1h }}</span></li>
+			<li> 1시간 강수량: <span>{{ rn1 }}</span></li>
+			<li> 하늘상태: <span>{{ sky }}</span></li>
+			<li> 동서바람성분: <span>{{ uuu }}</span></li>
+			<li> 남북바람성분: <span>{{ vvv }}</span></li>
+		</ul>
+	</body>
+</html>

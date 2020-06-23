@@ -1,0 +1,44 @@
+ from flask import Flask, request
+from flask import render_template
+from urllib.parse import urlencode,unquote
+import requests
+import json
+from datetime import datetime
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+	today = datetime.today()
+	daystr =str(today.year) + "년" + str(today.month) + "월" + str(today.day) + "일"
+	return render_template("index.html",title="I love it",today=daystr)
+
+@app.route("/weather")
+def weather():
+	x = request.values.get("x","error")
+	y = request.values.get("y","error")
+	if x=="error" or y=="error":
+		return" x,y의 값"
+	url = "http:/apis.data.go.kr1360000/VilageFcstInfoService/getVilageFcst"
+	qs = "?" + urlencode(
+		{
+			"ServiceKey":unquote("D2kzspjmVikXooKUPafhBAV%2BF3hppmY9XPZNxENHCSwsPRWIAw4lDm9cnsgcHVHh%2Be9cajthC1Um21sjso313g%3D%3D")
+			,"pageNo":"1"	
+			,"numOfRows":"30"
+			,"dataType":"JSON"
+			,"base_date":"20200616"
+			,"base_time":"0050"
+			,"nx":x
+			,"ny":y
+		}
+	)
+	print(qs)
+	#response =requests.get(url + qs)
+	response ="http://naver.com"
+	return respones.text
+	
+def before_request():
+	app.jinja_env.cache = {}
+	
+if __name__ == "__main__":
+	app.before_request(before_request)
+	app.run(host="0.0.0.0",port="880")

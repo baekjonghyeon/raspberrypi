@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{dong}}문막날씨</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+	</head>
+	<body>
+		<h1>{{dong}}날씨</h1>
+		<ul>
+			
+			<li> 강수확률: <span>{{ pop }} %</span></li>
+			<li> 최고기온: <span>{{ tmx }} c</span></li>
+			<li> 습도: <span>{{ reh }} %</span></li>
+		</ul>
+	</body>
+</html>

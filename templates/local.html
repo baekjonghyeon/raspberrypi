@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>원주 지역 날씨</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+	</head>
+	<body>
+		<ul>
+			{% for dong in dong_list %}
+			<li><a href="/weather?x={{dong[1]}}&y={{dong[2]}}&dong={{dong[0]}}">{{dong[0]}}</a></li>
+			{% endfor %}
+			
+			
+		</ul>
+	</body>
+</html>
